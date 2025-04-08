@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwerksunternehmen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        nav {
+            background-color: #004c99;
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #003366;
+        }
+        section {
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 2em;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+        .services, .testimonials {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .services div, .testimonials div {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            flex: 1;
+            text-align: center;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #004c99;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Handwerksunternehmen</h1>
+    <p>Ihr zuverlässiger Partner für Handwerkslösungen</p>
+</header>
+
+<nav>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ueber-uns">Über uns</a>
+    <a href="#referenzen">Referenzen</a>
+    <a href="#kontakt">Kontakt</a>
+</nav>
+
+<section id="leistungen">
+    <h2>Unsere Leistungen</h2>
+    <div class="services">
+        <div>
+            <h3>Sanierung</h3>
+            <p>Wir bieten Ihnen fachgerechte Sanierungen für Ihre Immobilie.</p>
+        </div>
+        <div>
+            <h3>Renovierung</h3>
+            <p>Modernisieren Sie Ihre Räume mit unserer Renovierungsarbeit.</p>
+        </div>
+        <div>
+            <h3>Reparaturen</h3>
+            <p>Reparaturen, die Ihre Räumlichkeiten in einwandfreiem Zustand halten.</p>
+        </div>
+    </div>
+</section>
+
+<section id="ueber-uns">
+    <h2>Über uns</h2>
+    <p>Unser Handwerksunternehmen steht für Qualität, Professionalität und jahrelange Erfahrung. Wir bieten maßgeschneiderte Lösungen, die auf Ihre Bedürfnisse abgestimmt sind.</p>
+</section>
+
+<section id="referenzen">
+    <h2>Referenzen</h2>
+    <p>Sehen Sie sich einige unserer abgeschlossenen Projekte an:</p>
+    <div class="testimonials">
+        <div>
+            <h3>Projekt 1</h3>
+            <p>Beschreibung eines erfolgreich abgeschlossenen Projekts.</p>
+        </div>
+        <div>
+            <h3>Projekt 2</h3>
+            <p>Ein weiteres Beispiel unserer Arbeit in der Renovierung.</p>
+        </div>
+        <div>
+            <h3>Projekt 3</h3>
+            <p>Sanierungsarbeiten, die wir zu einem großartigen Ergebnis gebracht haben.</p>
+        </div>
+    </div>
+</section>
+
+<section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Kontaktieren Sie uns für ein unverbindliches Angebot!</p>
+    <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Nachricht:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Absenden</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Handwerksunternehmen – Alle Rechte vorbehalten</p>
+    <p>Adresse: Musterstraße 1, 12345 Musterstadt | Tel: 01234 / 567890 | E-Mail: info@handwerksunternehmen.de</p>
+    <p><a href="mailto:info@handwerksunternehmen.de">Kontaktieren Sie uns per E-Mail</a></p>
+</footer>
+
+</body>
+</html>
