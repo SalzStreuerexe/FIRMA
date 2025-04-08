@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns - Handwerksunternehmen</title>
+    <style>
+        /* Grundlegendes CSS - kann in eine separate CSS-Datei ausgelagert werden */
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        header { background-color: #007bff; color: white; padding: 20px 0; text-align: center; }
+        .banner-container { position: relative; overflow: hidden; }
+        .banner-image { width: 100%; display: block; }
+        .banner-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.5em; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+        .cta-button { background-color: #ffffff; color: #007bff; border: none; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        nav { background-color: #0056b3; color: white; padding: 10px 0; text-align: center; }
+        nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { color: white; text-decoration: none; }
+        main { padding: 20px; }
+        .section-title { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
+        .about-us-content { background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .about-us-content p { line-height: 1.6; margin-bottom: 15px; }
+        .team-image { max-width: 300px; height: auto; border-radius: 5px; margin-top: 20px; }
+        footer { background-color: #333; color: white; text-align: center; padding: 10px 0; position: sticky; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner-container">
+            <img src="placeholder-banner.jpg" alt="Banner des Handwerksunternehmens" class="banner-image">
+            <div class="banner-text">Ihr zuverlässiger Partner für Handwerkslösungen</div>
+            <a href="kontakt.html" class="cta-button">Jetzt Kontakt aufnehmen</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="referenzen.html">Referenzen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="ueber-uns">
+            <h2 class="section-title">Über uns</h2>
+            <div class="about-us-content">
+                <p>Hier können Sie die Geschichte Ihres Handwerksunternehmens erzählen. Beschreiben Sie, wie Sie angefangen haben, welche Werte Sie vertreten und was Ihr Unternehmen besonders macht.</p>
+                <p>Erzählen Sie von Ihrem Team, den Qualifikationen Ihrer Mitarbeiter und Ihrer Leidenschaft für das Handwerk.</p>
+                <p>Gehen Sie auf Ihre Philosophie ein und was Sie antreibt, qualitativ hochwertige Arbeit zu leisten und Ihre Kunden zufriedenzustellen.</p>
+                <img src="placeholder-team.jpg" alt="Unser Team" class="team-image">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Handwerksunternehmen. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
