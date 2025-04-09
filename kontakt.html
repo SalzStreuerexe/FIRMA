@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <button class="openbtn" onclick="openNav()">&#9776; Menü</button>
+
+    <div id="sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Startseite</a>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="referenzen.html">Referenzen</a>
+        <a href="kontakt.html">Kontakt</a>
+        <hr style="border-color: #444;">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+    </div>
+
+     <div id="main-overlay" onclick="closeNav()"></div>
+
     <header>
         <div class="banner-container">
              <img src="images/banner.jpg" alt="Bannerbild Kontakt" class="banner-image">
@@ -16,17 +33,7 @@
         </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="leistungen.html">Leistungen</a></li>
-            <li><a href="ueber-uns.html">Über uns</a></li>
-            <li><a href="referenzen.html">Referenzen</a></li>
-            <li><a href="kontakt.html" class="active">Kontakt</a></li>
-        </ul>
-    </nav>
-
-    <main>
+     <main>
         <section id="kontakt">
             <h2 class="section-title">Kontaktieren Sie uns</h2>
             <p>Haben Sie Fragen oder wünschen Sie ein individuelles Angebot? Nutzen Sie das Kontaktformular oder rufen Sie uns an. Wir freuen uns auf Ihre Anfrage!</p>
@@ -48,10 +55,12 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Ihre Nachricht:</label>
-                        <textarea id="message" name="message" rows="6" required></textarea> </div>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
                      <div class="form-group">
                          <input type="checkbox" id="privacy" name="privacy" required>
-                         <label for="privacy" style="display: inline; font-weight: normal;"> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</label> </div>
+                         <label for="privacy" style="display: inline; font-weight: normal;"> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</label>
+                     </div>
                     <button type="submit">Nachricht senden</button>
                 </form>
             </div>
@@ -60,10 +69,12 @@
                 <h3>Unsere Kontaktdaten</h3>
                  <p><strong>Reinhold Kugelmann</strong></p>
                 <p><strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt</p>
-                <p><strong>Telefon:</strong> <a href="tel:0123456789">0123-456789</a></p> <p><strong>E-Mail:</strong> <a href="mailto:info@reinhold-kugelmann.de">info@reinhold-kugelmann.de</a></p> <h3>Anfahrt</h3>
+                <p><strong>Telefon:</strong> <a href="tel:0123456789">0123-456789</a></p>
+                <p><strong>E-Mail:</strong> <a href="mailto:info@reinhold-kugelmann.de">info@reinhold-kugelmann.de</a></p>
+
+                 <h3>Anfahrt</h3>
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    src="about:blank" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
 
@@ -71,11 +82,24 @@
                  <h3>Folgen Sie uns</h3>
                 <a href="#" target="_blank" title="Besuchen Sie uns auf Instagram">Instagram</a>
                 <a href="#" target="_blank" title="Besuchen Sie uns auf Facebook">Facebook</a>
-                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Reinhold Kugelmann. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: white;">Impressum</a> | <a href="datenschutz.html" style="color: white;">Datenschutz</a></p> </footer>
+         <p>© 2025 Reinhold Kugelmann. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: white;">Impressum</a> | <a href="datenschutz.html" style="color: white;">Datenschutz</a></p>
+    </footer>
+
+    <script>
+        function openNav() {
+          document.getElementById("sidenav").style.width = "250px";
+          document.getElementById("main-overlay").style.display = "block";
+        }
+        function closeNav() {
+          document.getElementById("sidenav").style.width = "0";
+          document.getElementById("main-overlay").style.display = "none";
+        }
+    </script>
+
 </body>
 </html>
