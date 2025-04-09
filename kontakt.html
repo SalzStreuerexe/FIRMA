@@ -3,36 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - Handwerksunternehmen</title>
-    <style>
-        /* Grundlegendes CSS - kann in eine separate CSS-Datei ausgelagert werden */
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        header { background-color: #007bff; color: white; padding: 20px 0; text-align: center; }
-        .banner-container { position: relative; overflow: hidden; }
-        .banner-image { width: 100%; display: block; }
-        .banner-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.5em; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
-        .cta-button { background-color: #ffffff; color: #007bff; border: none; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 10px; }
-        nav { background-color: #0056b3; color: white; padding: 10px 0; text-align: center; }
-        nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; }
-        nav ul li { margin: 0 15px; }
-        nav ul li a { color: white; text-decoration: none; }
-        main { padding: 20px; }
-        .section-title { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
-        .contact-form { background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 20px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .form-group input[type="text"], .form-group input[type="email"], .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .form-group button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-        .contact-info { margin-top: 20px; }
-        .social-media { margin-top: 15px; }
-        .social-media a { margin-right: 10px; color: #007bff; text-decoration: none; }
-        footer { background-color: #333; color: white; text-align: center; padding: 10px 0; position: sticky; bottom: 0; width: 100%; }
-    </style>
+     <meta name="description" content="Kontaktieren Sie Reinhold Kugelmann für Anfragen zu Heizung, Sanitär, Bad Sanierung oder Wartung. Finden Sie Adresse, Telefonnummer und E-Mail.">
+    <title>Kontakt - Reinhold Kugelmann</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <div class="banner-container">
-            <img src="placeholder-banner.jpg" alt="Banner des Handwerksunternehmens" class="banner-image">
+             <img src="images/banner.jpg" alt="Bannerbild Kontakt" class="banner-image">
             <div class="banner-text">Ihr zuverlässiger Partner für Handwerkslösungen</div>
             <a href="kontakt.html" class="cta-button">Jetzt Kontakt aufnehmen</a>
         </div>
@@ -44,16 +22,18 @@
             <li><a href="leistungen.html">Leistungen</a></li>
             <li><a href="ueber-uns.html">Über uns</a></li>
             <li><a href="referenzen.html">Referenzen</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="kontakt.html" class="active">Kontakt</a></li>
         </ul>
     </nav>
 
     <main>
         <section id="kontakt">
-            <h2 class="section-title">Kontakt</h2>
-            <p>Nehmen Sie Kontakt mit uns auf! Wir freuen uns auf Ihre Anfrage.</p>
+            <h2 class="section-title">Kontaktieren Sie uns</h2>
+            <p>Haben Sie Fragen oder wünschen Sie ein individuelles Angebot? Nutzen Sie das Kontaktformular oder rufen Sie uns an. Wir freuen uns auf Ihre Anfrage!</p>
+
             <div class="contact-form">
-                <form action="#" method="post">
+                <h3>Schreiben Sie uns eine Nachricht</h3>
+                 <form action="#" method="post">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -62,30 +42,40 @@
                         <label for="email">E-Mail-Adresse:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Nachricht:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                     <div class="form-group">
+                        <label for="phone">Telefonnummer (optional):</label>
+                        <input type="text" id="phone" name="phone">
                     </div>
+                    <div class="form-group">
+                        <label for="message">Ihre Nachricht:</label>
+                        <textarea id="message" name="message" rows="6" required></textarea> </div>
+                     <div class="form-group">
+                         <input type="checkbox" id="privacy" name="privacy" required>
+                         <label for="privacy" style="display: inline; font-weight: normal;"> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</label> </div>
                     <button type="submit">Nachricht senden</button>
                 </form>
             </div>
+
             <div class="contact-info">
                 <h3>Unsere Kontaktdaten</h3>
+                 <p><strong>Reinhold Kugelmann</strong></p>
                 <p><strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt</p>
-                <p><strong>Telefon:</strong> 0123-456789</p>
-                <p><strong>E-Mail:</strong> info@handwerksunternehmen.de</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2554.226732356685!2d8.378531975718575!3d50.19429270577576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bdaff3ffe50e85%3A0xe4f29c3ac45594d5!2sReinhold%20Kugelmann%20Heizung%26Sanit%C3%A4r%20Meisterbetrieb%20Inh.%20Axel%20Bachan!5e0!3m2!1sde!2sde!4v1744119271020!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><strong>Telefon:</strong> <a href="tel:0123456789">0123-456789</a></p> <p><strong>E-Mail:</strong> <a href="mailto:info@reinhold-kugelmann.de">info@reinhold-kugelmann.de</a></p> <h3>Anfahrt</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
+
             <div class="social-media">
-                <h3>Folgen Sie uns</h3>
-                <a href="#" target="_blank">Instagram</a>
-                <a href="#" target="_blank">Facebook</a>
+                 <h3>Folgen Sie uns</h3>
+                <a href="#" target="_blank" title="Besuchen Sie uns auf Instagram">Instagram</a>
+                <a href="#" target="_blank" title="Besuchen Sie uns auf Facebook">Facebook</a>
                 </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2023 Handwerksunternehmen. Alle Rechte vorbehalten.</p>
-    </footer>
+        <p>© 2025 Reinhold Kugelmann. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: white;">Impressum</a> | <a href="datenschutz.html" style="color: white;">Datenschutz</a></p> </footer>
 </body>
 </html>
