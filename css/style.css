@@ -3,8 +3,7 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    /* Hellgrauer Seitenhintergrund */
+    background-color: #f4f4f4; /* Hellgrauer Seitenhintergrund */
     color: #333;
     display: flex;
     flex-direction: column;
@@ -12,8 +11,7 @@ body {
 }
 
 main {
-    flex-grow: 1;
-    /* Lässt den Hauptinhalt wachsen */
+    flex-grow: 1; /* Lässt den Hauptinhalt wachsen */
     padding: 20px;
 }
 
@@ -93,8 +91,7 @@ header {
 .testimonial,
 .contact-form,
 .about-us-content {
-    background-color: white;
-    /* Weißer Hintergrund für Inhaltsboxen */
+    background-color: white; /* Weißer Hintergrund für Inhaltsboxen */
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -133,10 +130,17 @@ header {
     background-color: #0056b3;
 }
 
+/* Testimonial-Stile */
+.testimonial {
+    border-left: 5px solid #007bff;
+    padding-left: 15px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
 .testimonial p:first-of-type {
     font-style: italic;
 }
-
 .testimonial p:last-of-type {
     text-align: right;
     font-weight: bold;
@@ -155,7 +159,6 @@ header {
     margin-left: 20px;
     padding-left: 10px;
 }
-
 .service-detail ul li {
     margin-bottom: 8px;
     line-height: 1.5;
@@ -208,16 +211,15 @@ header {
 
 .contact-form .form-group input[type="text"],
 .contact-form .form-group input[type="email"],
-.contact-form .form-group input[type="tel"],
-/* Tel hinzugefügt */
+.contact-form .form-group input[type="tel"], /* Tel hinzugefügt */
 .contact-form .form-group textarea {
     width: 100%;
     padding: 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
-
 .contact-form .form-group input:focus,
 .contact-form .form-group textarea:focus {
     border-color: #007bff;
@@ -227,137 +229,393 @@ header {
 /* Style für Datenschutz-Checkbox und Label */
 .contact-form .form-group input[type="checkbox"] {
     margin-right: 5px;
-    vertical-align: middle;
-    /* B... */
+    vertical-align: middle; /* Bessere Ausrichtung */
+}
+.contact-form .form-group label[for="privacy"] {
+    display: inline; /* Label neben Checkbox */
+    font-weight: normal;
 }
 
-/* Footer-Styles */
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+.contact-info {
+    margin-top: 30px;
+    line-height: 1.7;
+}
+.contact-info h3 {
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+.contact-info iframe {
+    border: 0;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+.social-media h3 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    margin-right: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+.social-media a:hover {
+    text-decoration: underline;
+}
+
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px 0;
-    position: relative;
-    /* Für position: fixed; benötigt */
-    bottom: 0;
-    /* An den unteren Rand setzen */
+    padding: 15px 0;
+    margin-top: auto; /* Hält Footer unten (Flexbox) */
     width: 100%;
-    /* Volle Breite */
+    font-size: 0.9em;
+}
+footer a { /* Links im Footer stylen */
+    color: #aaa; /* Etwas helleres Grau für Links im Footer */
+    text-decoration: none;
+}
+footer a:hover {
+    color: white;
+    text-decoration: underline;
 }
 
-/* Styles für das Navigationsmenü */
+/* --- Styles für Seitennavigation (Sidenav) --- */
 .sidenav {
     height: 100%;
-    width: 0;
+    width: 0; /* Initial ausgeblendet */
     position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #222;
     overflow-x: hidden;
-    padding-top: 60px;
     transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 3px 0px 15px rgba(0,0,0,0.2);
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 10px 15px 10px 32px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.1em;
     color: #cccccc;
     display: block;
     transition: 0.3s;
     border-bottom: 1px solid #333;
 }
-
 .sidenav a:last-child {
     border-bottom: none;
 }
 
 .sidenav a:hover {
-  color: #ffffff;
-  background-color: #333;
+    color: #ffffff;
+    background-color: #333;
 }
 
 .sidenav .closebtn {
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  color: #cccccc;
-  line-height: 1;
-  border-bottom: none;
-  padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #cccccc;
+    line-height: 1;
+    border-bottom: none;
+    padding: 0;
 }
-
 .sidenav .closebtn:hover {
     color: #ffffff;
     background-color: transparent;
 }
 
 .openbtn {
-  font-size: 25px;
-  cursor: pointer;
-  background-color: #0056b3;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 5;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 5;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .openbtn:hover {
-  background-color: #007bff;
+    background-color: #007bff;
 }
 
 #main-overlay {
     position: fixed;
-    display: none;
-    /* Initial unsichtbar */
+    display: none; /* Initial unsichtbar */
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(0,0,0,0.5);
-    /* Halbtransparent */
-    z-index: 2;
-    /* Unter dem Menü, aber über anderen Inhalten */
+    z-index: 9;
     cursor: pointer;
+    transition: background-color 0.5s;
 }
 
-/* Media Queries für Responsive Design */
-/* Für Tablets im Querformat oder kleinere Laptops */
-@media screen and (max-width: 1024px) {
+/* Layout für Startseite mit Karte */
+
+.offer-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Zwei gleichbreite Spalten */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.offer-list {
+    display: flex;
+    flex-direction: column; /* Stile untereinander */
+    gap: 20px;
+}
+
+.offer-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0; /* Entfernt den unteren Abstand, da .offer-list den Abstand regelt */
+}
+
+.offer-item h3 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+.offer-item p {
+    margin-bottom: 15px;
+}
+
+.offer-item a {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.offer-item a:hover {
+    background-color: #0056b3;
+}
+
+.map-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-container h3 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Media Query für kleinere Bildschirme */
+@media (max-width: 600px) {
     .banner-text {
         font-size: 1.2em;
     }
     .offer-overview,
     .service-overview,
     .reference-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: 1fr; /* Nur eine Spalte */
+    }
+    .contact-info iframe {
+        height: 300px; /* Etwas niedrigere Karte auf Mobilgeräten */
+    }
+    /* Optional: Mache Header kleiner oder Menü-Button prominenter */
+    .offer-grid-container {
+        grid-template-columns: 1fr; /* Nur eine Spalte */
     }
 }
 
-/* Für Smartphones im Hochformat */
-@media screen and (max-width: 600px) {
-    .banner-text {
-        font-size: 1em;
-    }
-    .offer-overview,
-    .service-overview,
-    .reference-gallery {
-        grid-template-columns: 1fr;
-        /* Nur eine Spalte */
-    }
-    .offer-item,
-    .service-item {
-        padding: 15px;
-    }
-    .section-title {
-        font-size: 1.5em;
-    }
+#google-bewertungen {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bewertungs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.bewertung {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.mehr-bewertungen {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#impressum {
+    padding: 20px;
+}
+
+.impressum-inhalt {
+    background-color: white; /* Weißer Hintergrund für den Inhalt */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichter Schatten für einen "3D"-Effekt */
+    padding: 20px;
+}
+
+.impressum-inhalt h3 {
+    color: #007bff; /* Blaue Überschriften */
+    margin-top: 0;
+}
+
+.impressum-inhalt h4 {
+    margin-top: 20px; /* Abstand vor den Unterüberschriften im Haftungsausschluss */
+    color: #333;
+    border-bottom: 1px solid #ccc; /* Trennlinie unter den Unterüberschriften */
+    padding-bottom: 5px;
+}
+
+.impressum-inhalt p {
+    line-height: 1.6; /* Zeilenabstand für besseres Lesen */
+    margin-bottom: 10px;
+}
+
+.impressum-inhalt a {
+    color: #007bff; /* Blaue Links */
+    text-decoration: none;
+}
+
+.impressum-inhalt a:hover {
+    text-decoration: underline; /* Unterstrichene Links beim Überfahren mit der Maus */
+}
+#datenschutz {
+    padding: 20px;
+}
+
+.datenschutz-inhalt {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.datenschutz-inhalt h3 {
+    color: #007bff; /* Blaue Überschriften */
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.datenschutz-inhalt p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.datenschutz-inhalt ul {
+    list-style-type: disc; /* Aufzählungszeichen für unsortierte Listen */
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.datenschutz-inhalt ol {
+    list-style-type: decimal; /* Nummerierung für sortierte Listen */
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.datenschutz-inhalt strong {
+    font-weight: bold; /* Hervorhebung von wichtigem Text */
+}
+
+.datenschutz-inhalt a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.datenschutz-inhalt a:hover {
+    text-decoration: underline;
+}
+/* Fokus-Styles für interaktive Elemente */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #007bff; /* Beispielstil für den Fokus */
+    outline-offset: 2px;
+}
+
+/* Formular-Validierungsstile */
+input:invalid {
+    border-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
+
+/* Responsive Bilder (Beispiel - eher im HTML) */
+/* img {
+    max-width: 100%;
+    height: auto;
+} */
+
+/* Semantische Strukturierung (Beispiel) */
+/* article {
+    margin-bottom: 20px;
+} */
+
+/* Animationen und Übergänge (Beispiel) */
+button {
+    transition: background-color 0.3s ease;
+}
+
+/* Farben für Links */
+a {
+    color: #007bff;
+    text-decoration: none; /* Entfernt die Standardunterstreichung */
+}
+
+a:hover {
+    text-decoration: underline; /* Fügt Unterstreichung beim Überfahren hinzu */
 }
