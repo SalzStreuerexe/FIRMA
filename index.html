@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reinhold Kugelmann - Ihr zuverlässiger Partner für Heizung, Sanitär, Bad Sanierung und Wartung.">
+    <meta name="description"
+        content="Reinhold Kugelmann - Ihr zuverlässiger Partner für Heizung, Sanitär, Bad Sanierung und Wartung.">
     <title>Reinhold Kugelmann - Heizung & Sanitär</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <button class="openbtn" onclick="openNav()">&#9776;</button>
+    <button class="openbtn" onclick="openNav()" aria-label="Menü öffnen">☰</button>
 
     <div id="sidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Menü schließen">&times;</a>
         <a href="index.html">Startseite</a>
         <a href="leistungen.html">Leistungen</a>
         <a href="ueber-uns.html">Über uns</a>
@@ -35,17 +38,19 @@
 
     <main>
         <section id="startseite">
-             <h2 class="section-title">Willkommen bei Reinhold Kugelmann!</h2>
-            <p>Wir bieten Ihnen hochwertige Handwerksleistungen für Ihr Zuhause und Ihr Unternehmen. Entdecken Sie unsere Kernkompetenzen:</p>
+
+            <h2 class="section-title">Willkommen bei Reinhold Kugelmann!</h2>
+            <p>Wir bieten Ihnen hochwertige Handwerksleistungen für Ihr Zuhause und Ihr Unternehmen.
+                Entdecken Sie unsere Kernkompetenzen:</p>
             <div class="offer-overview">
-                 <div class="offer-item">
+                <div class="offer-item">
                     <h3>Innovative Heizlösungen</h3>
                     <p>Für eine nachhaltige Zukunft.</p>
                     <a href="Leistungen/heizloesungen.html">Mehr erfahren</a>
                 </div>
                 <div class="offer-item">
                     <h3>Bad Sanierung & Sanitär</h3>
-                    <p>Ihr Weg zum modernen Bad.</p>
+                    <p>Verwandeln Sie Ihr Badezimmer in eine moderne Wohlfühloase.</p>
                     <a href="Leistungen/badsanierung.html">Mehr erfahren</a>
                 </div>
                 <div class="offer-item">
@@ -64,25 +69,57 @@
                 <p>"Schnelle und unkomplizierte Abwicklung. Wir können dieses Handwerksunternehmen nur empfehlen!"</p>
                 <p>- Ein anderer zufriedener Kunde</p>
             </div>
+
+            <section id="google-bewertungen">
+                <h2 class="section-title">Was unsere Kunden auf Google sagen</h2>
+                <div class="bewertungs-container">
+                    <div class="bewertung">
+                        <div class="bewertung-kopf">
+                            <img src="images/google-profilbild1.jpg" alt="Profilbild des Bewerters 1">
+                            <h4>Name des Bewerters 1</h4>
+                            <div class="bewertung-sterne">
+                                ★★★★★
+                            </div>
+                        </div>
+                        <p>"Dieser Kommentar von Google ist sehr positiv und lobt den Service und die Qualität der Arbeit."</p>
+                    </div>
+
+                    <div class="bewertung">
+                        <div class="bewertung-kopf">
+                            <img src="images/google-profilbild2.jpg" alt="Profilbild des Bewerters 2">
+                            <h4>Name des Bewerters 2</h4>
+                            <div class="bewertung-sterne">
+                                ★★★★☆
+                            </div>
+                        </div>
+                        <p>"Dieser Kommentar ist ebenfalls positiv und hebt die Zuverlässigkeit des Unternehmens hervor."</p>
+                    </div>
+
+                    </div>
+                <div class="mehr-bewertungen">
+                    <a href="DEINE_GOOGLE_BEWERTUNGEN_URL" class="cta-button" target="_blank"
+                        rel="noopener noreferrer">Mehr Bewertungen anzeigen</a>
+                </div>
+            </section>
         </section>
-        </section>
-        -->
     </main>
 
     <footer>
-         <p>© 2025 Reinhold Kugelmann. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: white;">Impressum</a> | <a href="datenschutz.html" style="color: white;">Datenschutz</a></p>
+        <p>© 2025 Reinhold Kugelmann. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: white;">Impressum</a>
+        | <a href="datenschutz.html" style="color: white;">Datenschutz</a></p>
     </footer>
 
     <script>
         function openNav() {
-          document.getElementById("sidenav").style.width = "250px";
-          document.getElementById("main-overlay").style.display = "block";
+            document.getElementById("sidenav").style.width = "250px";
+            document.getElementById("main-overlay").style.display = "block";
         }
         function closeNav() {
-          document.getElementById("sidenav").style.width = "0";
-          document.getElementById("main-overlay").style.display = "none";
+            document.getElementById("sidenav").style.width = "0";
+            document.getElementById("main-overlay").style.display = "none";
         }
     </script>
 
 </body>
+
 </html>
