@@ -510,3 +510,47 @@ footer a:hover {
 .datenschutz-inhalt a:hover {
     text-decoration: underline;
 }
+/* Fokus-Styles für interaktive Elemente */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #007bff; /* Beispielstil für den Fokus */
+    outline-offset: 2px;
+}
+
+/* Formular-Validierungsstile */
+input:invalid {
+    border-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
+
+/* Responsive Bilder (Beispiel - eher im HTML) */
+/* img {
+    max-width: 100%;
+    height: auto;
+} */
+
+/* Semantische Strukturierung (Beispiel) */
+/* article {
+    margin-bottom: 20px;
+} */
+
+/* Animationen und Übergänge (Beispiel) */
+button {
+    transition: background-color 0.3s ease;
+}
+
+/* Farben für Links */
+a {
+    color: #007bff;
+    text-decoration: none; /* Entfernt die Standardunterstreichung */
+}
+
+a:hover {
+    text-decoration: underline; /* Fügt Unterstreichung beim Überfahren hinzu */
+}
