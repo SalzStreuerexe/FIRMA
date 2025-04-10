@@ -463,3 +463,50 @@ footer a:hover {
 .impressum-inhalt a:hover {
     text-decoration: underline; /* Unterstrichene Links beim Überfahren mit der Maus */
 }
+#datenschutz {
+    padding: 20px;
+}
+
+.datenschutz-inhalt {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.datenschutz-inhalt h3 {
+    color: #007bff; /* Blaue Überschriften */
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.datenschutz-inhalt p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.datenschutz-inhalt ul {
+    list-style-type: disc; /* Aufzählungszeichen für unsortierte Listen */
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.datenschutz-inhalt ol {
+    list-style-type: decimal; /* Nummerierung für sortierte Listen */
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.datenschutz-inhalt strong {
+    font-weight: bold; /* Hervorhebung von wichtigem Text */
+}
+
+.datenschutz-inhalt a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.datenschutz-inhalt a:hover {
+    text-decoration: underline;
+}
