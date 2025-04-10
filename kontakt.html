@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <button class="openbtn" onclick="openNav()">&#9776; Menü</button>
+    <button class="openbtn" onclick="openNav()">&#9776;</button>
 
     <div id="sidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -23,7 +23,8 @@
         <a href="datenschutz.html">Datenschutz</a>
     </div>
 
-     <div id="main-overlay" onclick="closeNav()"></div>
+    
+    <div id="main-overlay" onclick="closeNav()"></div>
 
     <header>
         <div class="banner-container">
@@ -33,14 +34,16 @@
         </div>
     </header>
 
-     <main>
+    <main>
         <section id="kontakt">
-            <h2 class="section-title">Kontaktieren Sie uns</h2>
-            <p>Haben Sie Fragen oder wünschen Sie ein individuelles Angebot? Nutzen Sie das Kontaktformular oder rufen Sie uns an. Wir freuen uns auf Ihre Anfrage!</p>
+        
+        <h2 class="section-title">Kontaktieren Sie uns</h2>
+            <p>Haben Sie Fragen oder wünschen Sie ein individuelles Angebot?
+            Nutzen Sie das Kontaktformular oder rufen Sie uns an. Wir freuen uns auf Ihre Anfrage!</p>
 
             <div class="contact-form">
                 <h3>Schreiben Sie uns eine Nachricht</h3>
-                 <form action="#" method="post">
+                <form action="#" method="post">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -49,7 +52,7 @@
                         <label for="email">E-Mail-Adresse:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="phone">Telefonnummer (optional):</label>
                         <input type="text" id="phone" name="phone">
                     </div>
@@ -57,29 +60,29 @@
                         <label for="message">Ihre Nachricht:</label>
                         <textarea id="message" name="message" rows="6" required></textarea>
                     </div>
-                     <div class="form-group">
-                         <input type="checkbox" id="privacy" name="privacy" required>
-                         <label for="privacy" style="display: inline; font-weight: normal;"> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</label>
-                     </div>
-                    <button type="submit">Nachricht senden</button>
+                    <div class="form-group">
+                        <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                        <label for="datenschutz">Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu.</label>
+                    </div>
+                    <button type="submit" class="cta-button">Nachricht senden</button>
                 </form>
             </div>
 
-            <div class="contact-info">
+            <div class="contact-details">
                 <h3>Unsere Kontaktdaten</h3>
-                 <p><strong>Reinhold Kugelmann</strong></p>
+                <p><strong>Reinhold Kugelmann</strong></p>
                 <p><strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt</p>
                 <p><strong>Telefon:</strong> <a href="tel:0123456789">0123-456789</a></p>
                 <p><strong>E-Mail:</strong> <a href="mailto:info@reinhold-kugelmann.de">info@reinhold-kugelmann.de</a></p>
 
-                 <h3>Anfahrt</h3>
+                <h3>Anfahrt</h3>
                 <iframe
-                    src="about:blank" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    src="https://www.google.com/maps/embed?pb=!..."  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
 
             <div class="social-media">
-                 <h3>Folgen Sie uns</h3>
+                <h3>Folgen Sie uns</h3>
                 <a href="#" target="_blank" title="Besuchen Sie uns auf Instagram">Instagram</a>
                 <a href="#" target="_blank" title="Besuchen Sie uns auf Facebook">Facebook</a>
             </div>
@@ -87,7 +90,7 @@
     </main>
 
     <footer>
-         <p>© 2025 Reinhold Kugelmann. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: white;">Impressum</a> | <a href="datenschutz.html" style="color: white;">Datenschutz</a></p>
+        <p>© 2025 Reinhold Kugelmann. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: white;">Impressum</a> | <a href="datenschutz.html" style="color: white;">Datenschutz</a></p>
     </footer>
 
     <script>
