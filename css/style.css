@@ -426,3 +426,40 @@ footer a:hover {
     text-align: center;
     margin-top: 20px;
 }
+
+#impressum {
+    padding: 20px;
+}
+
+.impressum-inhalt {
+    background-color: white; /* Weißer Hintergrund für den Inhalt */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichter Schatten für einen "3D"-Effekt */
+    padding: 20px;
+}
+
+.impressum-inhalt h3 {
+    color: #007bff; /* Blaue Überschriften */
+    margin-top: 0;
+}
+
+.impressum-inhalt h4 {
+    margin-top: 20px; /* Abstand vor den Unterüberschriften im Haftungsausschluss */
+    color: #333;
+    border-bottom: 1px solid #ccc; /* Trennlinie unter den Unterüberschriften */
+    padding-bottom: 5px;
+}
+
+.impressum-inhalt p {
+    line-height: 1.6; /* Zeilenabstand für besseres Lesen */
+    margin-bottom: 10px;
+}
+
+.impressum-inhalt a {
+    color: #007bff; /* Blaue Links */
+    text-decoration: none;
+}
+
+.impressum-inhalt a:hover {
+    text-decoration: underline; /* Unterstrichene Links beim Überfahren mit der Maus */
+}
