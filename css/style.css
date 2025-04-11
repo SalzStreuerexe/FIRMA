@@ -30,8 +30,36 @@ header {
 .banner-image {
     width: 100%;
     display: block;
-    max-height: 300px; /* Höhe des Banners begrenzen */
-    object-fit: cover; /* Bildinhalt zuschneiden, um Container zu füllen */
+    max-height: 300px; /* Standardmäßige maximale Höhe */
+    object-fit: cover;
+}
+
+/* Anpassung für größere Tablets */
+@media (max-width: 992px) {
+    .banner-image {
+        max-height: 250px;
+    }
+}
+
+/* Anpassung für kleinere Tablets */
+@media (max-width: 768px) {
+    .banner-image {
+        max-height: 200px;
+    }
+}
+
+/* Anpassung für größere Smartphones */
+@media (max-width: 576px) {
+    .banner-image {
+        max-height: 150px;
+    }
+}
+
+/* Anpassung für kleinere Smartphones */
+@media (max-width: 480px) {
+    .banner-image {
+        max-height: 120px;
+    }
 }
 
 .banner-text {
@@ -370,12 +398,3 @@ select:focus {
         font-size: 0.9em;
     }
 }
-
-/* Kleinere Anpassung der Bannerhöhe für Handys */
-@media (max-width: 480px) {
-    .banner-image {
-        max-height: 200px; /* Reduziere die maximale Höhe für sehr kleine Bildschirme */
-    }
-}
-
-/* --- Ende der CSS-Datei --- */
