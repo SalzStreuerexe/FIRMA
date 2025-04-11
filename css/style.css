@@ -31,7 +31,7 @@ header {
    width: 100%;
     display: block;
     max-height: 300px; /* Standardmäßige maximale Höhe */
-    object-fit: cover;
+    object-fit: conatin;
 }
 
 /* Anpassung für größere Tablets */
