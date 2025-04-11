@@ -28,9 +28,10 @@ header {
 }
 
 .banner-image {
-    width: 65%;
+   width: 100%;
     display: block;
-    object-fit: contain;
+    max-height: 300px; /* Standardmäßige maximale Höhe */
+    object-fit: cover;
 }
 
 /* Anpassung für größere Tablets */
