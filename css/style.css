@@ -84,7 +84,6 @@ header {
 .map-container, /* Hinzugefügt für einheitliches Styling */
 .impressum-inhalt, /* Hinzugefügt */
 .datenschutz-inhalt { /* Hinzugefügt */
-    background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -325,10 +324,10 @@ select:focus {
      .map-container iframe {
         height: 350px; /* Etwas höhere Karte auf Tablets */
     }
-     /* Optional: Bannertext kleiner auf Tablets */
-     .banner-text {
+    /* Optional: Bannertext kleiner auf Tablets */
+    .banner-text {
         font-size: 1.4em;
-     }
+    }
 }
 
 /* Handy */
@@ -355,21 +354,28 @@ select:focus {
     /* Schriftgrößen und Abstände anpassen */
      h2.section-title {
          font-size: 1.4em; /* Kleinere Hauptüberschriften */
-     }
+    }
      h3 {
          font-size: 1.15em; /* Kleinere H3 */
-     }
+    }
      main {
          padding: 15px; /* Weniger Außenabstand */
-     }
-     /* Weniger Innenabstand in Boxen */
-     .offer-item, .service-item, .reference-item, .service-detail, .testimonial, .contact-form, .about-us-content, .map-container, .impressum-inhalt, .datenschutz-inhalt {
+    }
+    /* Weniger Innenabstand in Boxen */
+    .offer-item, .service-item, .reference-item, .service-detail, .testimonial, .contact-form, .about-us-content, .map-container, .impressum-inhalt, .datenschutz-inhalt {
         padding: 15px;
-     }
-     .cta-button { /* Buttons etwas kleiner */
+    }
+    .cta-button { /* Buttons etwas kleiner */
         padding: 8px 15px;
         font-size: 0.9em;
-     }
+    }
+}
+
+/* Kleinere Anpassung der Bannerhöhe für Handys */
+@media (max-width: 480px) {
+    .banner-image {
+        max-height: 200px; /* Reduziere die maximale Höhe für sehr kleine Bildschirme */
+    }
 }
 
 /* --- Ende der CSS-Datei --- */
