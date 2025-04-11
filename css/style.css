@@ -303,7 +303,7 @@ footer a:hover { color: white; text-decoration: underline; }
 .openbtn {
     font-size: 25px;
     cursor: pointer;
-    background-color: #0056b3;
+    background-color: #222; /* Farbe der Navigationsleiste */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -314,7 +314,7 @@ footer a:hover { color: white; text-decoration: underline; }
     border-radius: 5px;
     transition: background-color 0.3s;
 }
-.openbtn:hover { background-color: #007bff; }
+.openbtn:hover { background-color: #333; }
 
 #main-overlay {
     position: fixed;
@@ -381,13 +381,13 @@ select:focus {
 
     /* Schriftgrößen und Abstände anpassen */
      h2.section-title {
-         font-size: 1.4em; /* Kleinere Hauptüberschriften */
+          font-size: 1.4em; /* Kleinere Hauptüberschriften */
     }
      h3 {
-         font-size: 1.15em; /* Kleinere H3 */
+          font-size: 1.15em; /* Kleinere H3 */
     }
      main {
-         padding: 15px; /* Weniger Außenabstand */
+          padding: 15px; /* Weniger Außenabstand */
     }
     /* Weniger Innenabstand in Boxen */
     .offer-item, .service-item, .reference-item, .service-detail, .testimonial, .contact-form, .about-us-content, .map-container, .impressum-inhalt, .datenschutz-inhalt {
