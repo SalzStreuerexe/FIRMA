@@ -195,10 +195,6 @@ header {
     margin-bottom: 10px;
     font-style: normal; /* Standard-Schriftstil */
 }
-/* Optional: Nur ersten Absatz kursiv machen */
-/* .testimonial p:first-of-type {
-    font-style: italic;
-} */
 
 .testimonial p:last-of-type { /* Gilt für den Namen am Ende */
     text-align: right;
@@ -396,5 +392,96 @@ select:focus {
     .cta-button { /* Buttons etwas kleiner */
         padding: 8px 15px;
         font-size: 0.9em;
+    }
+}
+
+/* ========================================= */
+/* NEU: Styles für den Vorher-Nachher Slider */
+/* ========================================= */
+
+.ba-slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 5px; /* Einheitlich mit .offer-item etc. */
+    cursor: col-resize;
+    touch-action: none; /* Wichtig für Mobile Scrolling */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ba-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.ba-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ba-after {
+    width: 50%;
+    border-right: 3px solid #007bff; /* Dein Button-Blau */
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.ba-after img {
+     width: 100vw;
+     max-width: none;
+}
+
+.ba-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: #007bff; /* Dein Button-Blau */
+    border: 3px solid white;
+    border-radius: 50%;
+    z-index: 20;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ba-handle::after {
+    content: '\f337'; /* FontAwesome Pfeil-Icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: white;
+    font-size: 16px;
+}
+
+.ba-label {
+    position: absolute;
+    bottom: 1rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    z-index: 15;
+}
+
+.ba-label-before { left: 1rem; }
+.ba-label-after { right: 1rem; }
+
+/* Mobile Anpassung für den Slider */
+@media (max-width: 600px) {
+    .ba-slider {
+        height: 250px;
     }
 }
