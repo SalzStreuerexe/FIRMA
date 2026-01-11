@@ -5,11 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reinhold Kugelmann - Ihr zuverlässiger Partner für Heizung, Sanitär, Bad Sanierung und Wartung.">
     <title>Reinhold Kugelmann - Heizung & Sanitär</title>
+    
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .ba-slider {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 5px;
+            cursor: col-resize; /* Zeigt Mauszeiger als Pfeile an */
+            touch-action: none; /* Wichtig für Handy-Wischen */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid #ddd;
+        }
+
+        .ba-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Klicks gehen durch zum Container */
+        }
+
+        .ba-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Das "Nachher"-Bild (liegt oben) */
+        .ba-after {
+            width: 50%; /* Startet in der Mitte */
+            border-right: 3px solid #007bff; /* Blaue Trennlinie */
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        /* Trick: Bild im Container fixieren, damit es nicht gestaucht wird */
+        .ba-after img {
+            width: 100vw; /* Wird später per JS korrigiert */
+            max-width: none;
+        }
+
+        /* Der runde Griff */
+        .ba-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            border: 3px solid white;
+            border-radius: 50%;
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Pfeile im Griff */
+        .ba-handle::after {
+            content: '\2194'; /* Unicode Pfeil links/rechts */
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Beschriftung (Vorher/Nachher) */
+        .ba-label {
+            position: absolute;
+            bottom: 1rem;
+            padding: 5px 12px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 15;
+            pointer-events: none;
+        }
+        .ba-label-before { left: 1rem; }
+        .ba-label-after { right: 1rem; }
+
+        /* Anpassung für Handys */
+        @media (max-width: 600px) {
+            .ba-slider { height: 250px; }
+        }
+    </style>
 </head>
 <body>
 
-    
     <button class="openbtn" onclick="openNav()">☰ </button>
 
     <div id="sidenav" class="sidenav">
@@ -28,7 +120,7 @@
 
     <header>
         <div class="banner-container">
-            <img src="images/banner.jpg" alt="Bannerbild Reinhold Kugelmann - Heizung und Sanitär" class="banner-image">
+            <img src="images/banner.jpg" alt="Bannerbild Reinhold Kugelmann" class="banner-image">
         </div>
         <a href="kontakt.html" class="cta-button">Jetzt Kontakt aufnehmen</a>
     </header>
@@ -37,7 +129,7 @@
         <section id="startseite">
             <h2 class="section-title">Willkommen bei Reinhold Kugelmann!</h2>
             <p><strong>Reinhold Kugelmann</strong> – Ihr Partner für Heizung & Bad</p>
-            <p>Ob moderne Heizsysteme oder stilvolle Badsanierung – wir stehen für Qualität, Zuverlässigkeit und handwerkliches Können. Wir planen und installieren energieeffiziente Heizungen, sanieren Bäder mit höchstem Anspruch an Design und Funktion und sorgen dafür, dass Sie sich rundum wohlfühlen. Mit jahrzehntelanger Erfahrung sind wir Ihr regionaler Ansprechpartner für Wärme, Wasser und Wohnkomfort.</p>
+            <p>Ob moderne Heizsysteme oder stilvolle Badsanierung – wir stehen für Qualität, Zuverlässigkeit und handwerkliches Können. Wir planen und installieren energieeffiziente Heizungen, sanieren Bäder mit höchstem Anspruch an Design und Funktion und sorgen dafür, dass Sie sich rundum wohlfühlen.</p>
 
             <div class="offer-grid-container">
                 <div class="offer-list">
@@ -60,13 +152,14 @@
 
                 <div class="map-container">
                     <h3>Unser Standort</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.104977691628!2d8.380548392901845!3d50.19411818846408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bdaff3ffe50e85%3A0xe4f29c3ac45594d5!2sReinhold%20Kugelmann%20Heizung%26Sanit%C3%A4r%20Meisterbetrieb%20Inh.%20Axel%20Bachan!5e1!3m2!1sde!2sde!4v1744298678172!5m2!1sde!2sde" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.104977691628!2d8.380548392901845!3d50.19411818846408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bdaff3ffe50e85%3A0xe4f29c3ac45594d5!2sReinhold%20Kugelmann%20Heizung%26Sanit%C3%A4r%20Meisterbetrieb%20Inh.%20Axel%20Bachan!5e1!3m2!1sde!2sde!4v1744298678172!5m2!1sde!2sde" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
 
-            <h2 class="section-title">Vorher / Nachher Vergleich</h2>
-            <div class="offer-item" style="max-width: 800px; margin: 0 auto 30px auto;">
-                <p style="text-align: center;">Sehen Sie selbst, wie wir aus einem alten Bad eine Wohlfühloase machen.</p>
+            <h2 class="section-title" style="margin-top: 40px;">Unsere Arbeit: Vorher & Nachher</h2>
+            <div style="max-width: 800px; margin: 0 auto 40px auto; text-align: center;">
+                <p>Sehen Sie selbst, was möglich ist. Bewegen Sie den Regler nach links oder rechts.</p>
+                
                 <div class="ba-slider" id="bathroom-slider-main">
                     <div class="ba-handle"></div>
                     
@@ -80,43 +173,18 @@
                          <span class="ba-label ba-label-before">Vorher</span>
                     </div>
                 </div>
-                 <p style="text-align: center; font-size: 0.9em; color: #666; font-style: italic;">Ziehen Sie den Regler nach links oder rechts.</p>
             </div>
             <h2 class="section-title">Was unsere Kunden sagen</h2>
             <div class="testimonial">
-                <p>"Unsere Familie wird bereits in der dritten Generation von der Firma Kugelmann betreut, angefangen von Reparaturen über Wartungsarbeiten bis hin zu Neu-Installationen. Die Mitarbeiter waren stets freundlich und sachkundig, sämtliche Arbeiten wurden zuverlässig und rasch erledigt. Ganz besonders schätze ich die schnelle und unkomplizierte Hilfsbereitschaft bei "Notfällen", Hilfe kam stets schnell und die Probleme wurden immer erfolgreich behoben. In Sachen Heizung und Sanitär ist man bei der Firma Kugelmann in den besten Händen."</p>
+                <p>"Unsere Familie wird bereits in der dritten Generation von der Firma Kugelmann betreut... Die Mitarbeiter waren stets freundlich und sachkundig."</p>
                 <p>- Lutz Riehl</p>
             </div>
             <div class="testimonial">
-                <p>
-                    "Wir sind seit Jahren hoch zufriedene Kunden. Hervorragende Erreichbarkeit, große Zuverlässigkeit und außergewöhnliche Bereitschaft, notfalls auch am Wochenende oder an Feiertagen zu helfen, wenn die Heizung ausfällt oder ein Rohrbruch auftritt, sind nur unsere wichtigsten Gründe. Das von der Firma federführend komplett renovierte Bad ist sehr schön geworden."
-                </p>
+                <p>"Hervorragende Erreichbarkeit, große Zuverlässigkeit... Das von der Firma federführend komplett renovierte Bad ist sehr schön geworden."</p>
                 <p>- Hansjörg Melcher</p>
             </div>
-             <div class="testimonial">
-                 <p>
-                    "Seit zwei Generationen ist meine Familie der Firma treu geblieben und wir sind nach wie vor sehr zufrieden:
-                    <br><br>
-                    - Badezimmer Renovierungen.
-                    <br>
-                    - Santiitär Wartung.
-                    <br>
-                    - Heizungseinbau, Reparatur und Wartungsarbeiten.
-                    <br>
-                    - Installation und Instandhaltung eines komplexeren Klimaanlagensystems.
-                    <br>
-                    - Installation und Wartung eines Wasser Entkalkungssystems und vieles mehr.
-                    <br><br>
-                    Die Baustellen sind auch immer sauber und ordentlich gehalten und das Team funktioniert wie ein Uhrwerk - wenn etwas gemacht werden soll, dann wird es auch gemacht und zwar effizient und in absehbarer Zeit. Wer durch diese Firma geht kann von hoher Qualität, Exzellenz und Aufmerksamkeit zum Detail ausgehen.
-                    <br><br>
-                    Herzlichen Dank und gerne wieder <3"
-                </p>
-                 <p>- Madeleine Klein</p>
-            </div>
              <div class="mehr-bewertungen">
-                 <a href="https://www.google.com/search?client=firefox-b-d&sca_esv=393159a26b253a41&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzQhvuY0KNtDd2DdVCy3BxAdc2_uCTNXo72ePpImDu24WMOqeOt94j_WycKOn8Dw3He9JvsIsbBGmdAKkr9SCLn7gdTmc3ZPf3ow2nfvvvCyOWEhHjxesLIvT_zP5bhpbWEnepdTxk6h9OI8lWQxQX4BryvF7V8RpX5eWVIC0xs-YrGdciQ%3D%3D&q=Reinhold+Kugelmann+Heizung%26Sanit%C3%A4r+Meisterbetrieb+Inh.+Axel+Bachan+Rezensionen&sa=X&ved=2ahUKEwie_bKyw82MAxX4zgIHHa80AJ4Q0bkNegQIKxAD&biw=1920&bih=957&dpr=1" class="cta-button" target="_blank" rel="noopener noreferrer">
-                     Mehr Google-Bewertungen anzeigen
-                 </a>
+                 <a href="https://www.google.com/search?q=Reinhold+Kugelmann" class="cta-button" target="_blank">Mehr Google-Bewertungen anzeigen</a>
             </div>
         </section>
     </main>
@@ -126,6 +194,7 @@
     </footer>
 
     <script>
+        // Navigation Logik
         function openNav() {
           document.getElementById("sidenav").style.width = "250px";
           document.getElementById("main-overlay").style.display = "block";
@@ -138,36 +207,62 @@
         // --- SLIDER FUNKTION ---
         document.addEventListener('DOMContentLoaded', () => {
             const slider = document.getElementById('bathroom-slider-main');
-            if (!slider) return;
+            
+            // Sicherheitscheck: Gibt es den Slider?
+            if (!slider) {
+                console.error("Slider Element nicht gefunden!");
+                return;
+            }
 
             const afterWrapper = slider.querySelector('.ba-after');
             const afterImg = afterWrapper.querySelector('img');
             const handle = slider.querySelector('.ba-handle');
             let active = false;
 
+            // 1. Bildbreite korrekt setzen (damit es nicht gestaucht wird)
             function setImgWidth() {
                 const sliderWidth = slider.getBoundingClientRect().width;
                 if(afterImg) afterImg.style.width = sliderWidth + 'px';
             }
+            
+            // Sofort ausführen und bei Fenster-Änderung
             setImgWidth();
             window.addEventListener('resize', setImgWidth);
 
+            // 2. Bewegungs-Logik
             function slide(x) {
                 let rect = slider.getBoundingClientRect();
+                // Berechne Mausposition relativ zum Slider (0.0 bis 1.0)
                 let position = (x - rect.left) / rect.width;
+                // Begrenzen zwischen 0 und 1
                 position = Math.max(0, Math.min(1, position));
+                
+                // CSS updaten
                 afterWrapper.style.width = (position * 100) + "%";
                 handle.style.left = (position * 100) + "%";
             }
 
-            // Events für Maus und Touch
-            slider.addEventListener('mousedown', (e) => { active = true; slide(e.clientX); });
+            // MAUS Events (Desktop)
+            slider.addEventListener('mousedown', (e) => { 
+                active = true; 
+                slide(e.clientX); 
+            });
             window.addEventListener('mouseup', () => { active = false; });
-            slider.addEventListener('mousemove', (e) => { if (active) slide(e.clientX); });
+            slider.addEventListener('mousemove', (e) => { 
+                if (active) slide(e.clientX); 
+            });
             
-            slider.addEventListener('touchstart', (e) => { active = true; slide(e.touches[0].clientX); }, { passive: true });
+            // TOUCH Events (Handy)
+            slider.addEventListener('touchstart', (e) => { 
+                active = true; 
+                slide(e.touches[0].clientX); 
+            }, { passive: true });
+            
             window.addEventListener('touchend', () => { active = false; });
-            slider.addEventListener('touchmove', (e) => { if (active) slide(e.touches[0].clientX); }, { passive: true });
+            
+            slider.addEventListener('touchmove', (e) => { 
+                if (active) slide(e.touches[0].clientX); 
+            }, { passive: true });
         });
     </script>
 
