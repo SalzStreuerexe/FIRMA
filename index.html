@@ -72,6 +72,8 @@
             cursor: col-resize; 
             background-color: #111; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            
+            /* Keine Markierung */
             user-select: none;
             -webkit-user-select: none;
         }
@@ -131,33 +133,23 @@
             pointer-events: none; 
         }
 
-        /* Label Styles - RESPONSIVE ANGEPASST */
+        /* Label Styles */
         .rtx-label {
             position: absolute;
-            bottom: 15px; /* Etwas tiefer */
+            bottom: 20px;
             font-family: 'Roboto', sans-serif;
             font-weight: 900;
+            font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             z-index: 30;
             transition: all 0.3s ease;
             text-shadow: 0 2px 4px rgba(0,0,0,0.9);
             pointer-events: none;
-            
-            /* NEU: Schriftgröße für Mobile angepasst */
-            font-size: 0.7rem; 
         }
 
-        /* Auf größeren Bildschirmen wieder groß */
-        @media (min-width: 768px) {
-            .rtx-label {
-                font-size: 1.5rem;
-                bottom: 20px;
-            }
-        }
-
-        .label-left { left: 15px; }
-        .label-right { right: 15px; }
+        .label-left { left: 20px; }
+        .label-right { right: 20px; }
 
         .label-active {
             color: #1a73e8; 
@@ -168,19 +160,16 @@
         
         .label-inactive {
             color: rgba(255, 255, 255, 0.3);
-            opacity: 0.5; /* Etwas durchsichtiger wenn inaktiv */
+            opacity: 0.5;
         }
     </style>
 </head>
 
 <body class="bg-google-lightSurface dark:bg-google-darkBg text-google-textLight dark:text-google-textDark transition-colors duration-300 h-[100dvh] flex flex-col md:flex-row overflow-hidden">
 
-    <div class="md:hidden bg-white dark:bg-google-darkCard shadow-sm p-4 flex justify-between items-center z-50 sticky top-0">
-        <img src="images/LOGO+Titel%20ohne%20Hintergrund.png" alt="Kugelmann Logo" class="h-14 w-auto object-contain">
-        <button onclick="toggleMobileMenu()" class="text-gray-600 dark:text-gray-300 focus:outline-none">
-            <i class="fas fa-bars text-2xl"></i>
-        </button>
-    </div>
+    <button onclick="toggleMobileMenu()" class="md:hidden fixed top-4 right-4 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-lg text-gray-600 dark:text-gray-300 hover:text-google-blue transition border border-gray-100 dark:border-gray-700">
+        <i class="fas fa-bars text-xl w-6 h-6 flex items-center justify-center"></i>
+    </button>
 
     <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 md:static md:flex-shrink-0 w-72 bg-white dark:bg-google-darkCard border-r border-gray-200 dark:border-gray-700 transition-transform duration-300 z-[60] flex flex-col shadow-xl md:shadow-none">
         
@@ -189,7 +178,7 @@
                 <img src="images/LOGO+Titel%20ohne%20Hintergrund.png" alt="Kugelmann Logo" class="w-full h-auto max-h-48 object-contain cursor-pointer" onclick="navTo('start')">
             </div>
     
-            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-500">
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-500 hover:text-red-500 transition">
                 <i class="fas fa-times text-xl"></i>
             </button>
         </div>
@@ -442,8 +431,8 @@
                                     <i class="fas fa-chevron-right text-[10px] ml-1"></i>
                                 </div>
 
-                                <span id="label-old" class="rtx-label label-left label-inactive">Altes Bad</span>
-                                <span id="label-new" class="rtx-label label-right label-inactive">Neues Bad</span>
+                                <span id="label-old" class="rtx-label label-left label-inactive hidden md:block">Altes Bad</span>
+                                <span id="label-new" class="rtx-label label-right label-inactive hidden md:block">Neues Bad</span>
 
                             </div>
                             <p class="text-xs text-gray-400 mt-4 italic">Bewegen Sie den Slider für den Vorher-Nachher Vergleich</p>
