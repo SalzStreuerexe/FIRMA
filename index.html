@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reinhold Kugelmann - Ihr Meisterbetrieb für Heizung, Sanitär und Traumbäder in Glashütten. Wartung, Notdienst und moderne Heiztechnik aus einer Hand.">
     <title>Reinhold Kugelmann - Heizung & Sanitär</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -224,7 +223,7 @@
                     <i id="theme-icon" class="fas fa-moon"></i>
                 </button>
             </div>
-            <p class="text-xs text-center text-gray-400 mt-4">© 2026 Kugelmann GmbH</p>
+            <p class="text-xs text-center text-gray-400 mt-4">© 2025 Kugelmann GmbH</p>
         </div>
     </aside>
 
@@ -572,9 +571,15 @@
                                 </div>
                             </div>
                             
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Email Adresse</label>
-                                <input type="email" name="Email" required class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="max@beispiel.de">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Email Adresse</label>
+                                    <input type="email" name="Email" required class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="max@beispiel.de">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Telefonnummer</label>
+                                    <input type="tel" name="Telefon" class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="0123 456789">
+                                </div>
                             </div>
 
                             <div>
@@ -632,7 +637,10 @@
     </main>
 
     <script>
-        // --- NAVIGATION LOGIC (Hash-based) ---
+        // --- !!! HIER DEINEN LINK ZWISCHEN DIE STRICHE EINFÜGEN !!! ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwdLYZv_PlDNVvtYfBsq1jCk3e6S6l258ZzsI47BEJfzuj1imwcksNZDJ-nCUHLjYxY/exec'; 
+
+        // --- NAVIGATION LOGIC ---
         function handleNavigation() {
             const hash = window.location.hash.replace('#', '') || 'start';
             
@@ -754,8 +762,7 @@
 
         window.addEventListener('resize', updateSliderImageWidth);
 
-        // --- GOOGLE SHEETS FORM SUBMISSION LOGIC ---
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwdLYZv_PlDNVvtYfBsq1jCk3e6S6l258ZzsI47BEJfzuj1imwcksNZDJ-nCUHLjYxY/exec';
+        // --- GOOGLE SHEETS LOGIC ---
         const form = document.forms['google-sheet-form'];
         const loadingSpinner = document.getElementById('loading-spinner');
         const successMessage = document.getElementById('success-message');
@@ -764,16 +771,14 @@
             form.addEventListener('submit', e => {
               e.preventDefault();
               
-              // Lade-Spinner anzeigen
               if(loadingSpinner) loadingSpinner.classList.remove('hidden');
               
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    // Spinner weg, Erfolg anzeigen
                     if(loadingSpinner) loadingSpinner.classList.add('hidden');
                     if(successMessage) {
                         successMessage.classList.remove('hidden');
-                        successMessage.classList.add('flex'); // Flexbox aktivieren für Zentrierung
+                        successMessage.classList.add('flex');
                     }
                     form.reset();
                 })
