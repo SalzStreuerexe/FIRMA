@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reinhold Kugelmann - Ihr Meisterbetrieb für Heizung, Sanitär und Traumbäder in Glashütten. Wartung, Notdienst und moderne Heiztechnik aus einer Hand.">
     <title>Reinhold Kugelmann - Heizung & Sanitär</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -595,8 +597,8 @@
     </main>
 
     <script>
-        // --- NAVIGATION LOGIC ---
-        function navTo(pageId) {
+        // --- NAVIGATION LOGIC (ANGEPASST FÜR PUNKT 2) ---
+        function navTo(pageId, pushToHistory = true) {
             document.querySelectorAll('.page-section').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.page-section').forEach(el => el.classList.remove('page-transition'));
 
@@ -622,7 +624,24 @@
             if(pageId === 'referenzen') {
                 setTimeout(updateSliderImageWidth, 100);
             }
+
+            // NEU: Historie für Browser-Zurück-Button
+            if (pushToHistory) {
+                history.pushState({page: pageId}, null, '#' + pageId);
+            }
         }
+
+        // NEU: Event Listener für den Zurück-Button
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.page) {
+                navTo(event.state.page, false);
+            } else {
+                 // Falls kein State da ist (z.B. ganz am Anfang), Hash prüfen oder Startseite
+                 const hash = window.location.hash.replace('#', '');
+                 if(hash) navTo(hash, false);
+                 else navTo('start', false);
+            }
+        });
 
         function toggleMobileMenu() {
             const sidebar = document.getElementById('sidebar');
@@ -685,7 +704,6 @@
             handle.style.left = pos + "%";
 
             // --- LOGIK FÜR LABELS ---
-            // Slider ganz LINKS (pos < 10) -> "Neues Bad" (Rechts) ist voll sichtbar -> Label Blau
             if (pos < 10) {
                 labelNew.classList.add('label-active');
                 labelNew.classList.remove('label-inactive');
@@ -693,7 +711,6 @@
                 labelOld.classList.remove('label-active');
                 labelOld.classList.add('label-inactive');
             } 
-            // Slider ganz RECHTS (pos > 90) -> "Altes Bad" (Links/Overlay) ist voll sichtbar -> Label Blau
             else if (pos > 90) {
                 labelOld.classList.add('label-active');
                 labelOld.classList.remove('label-inactive');
@@ -701,7 +718,6 @@
                 labelNew.classList.remove('label-active');
                 labelNew.classList.add('label-inactive');
             } 
-            // Slider in der MITTE -> Beide ausgegraut
             else {
                 labelNew.classList.remove('label-active');
                 labelNew.classList.add('label-inactive');
@@ -729,7 +745,15 @@
                 document.getElementById('theme-icon').classList.add('fa-sun');
                 document.getElementById('theme-icon').classList.remove('fa-moon');
             }
-            navTo('start');
+            
+            // NEU: Prüfen, ob eine Seite in der URL steht (z.B. #leistungen), sonst Startseite
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById('page-' + hash)) {
+                navTo(hash, false);
+            } else {
+                navTo('start', false);
+            }
+
             updateSliderImageWidth(); // Initial call
         });
     </script>
