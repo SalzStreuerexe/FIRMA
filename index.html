@@ -556,14 +556,34 @@
                                     <input type="text" class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="Mustermann">
                                 </div>
                             </div>
+                            
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Email Adresse</label>
                                 <input type="email" class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="max@beispiel.de">
                             </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Worum geht es?</label>
+                                <div class="relative">
+                                    <select class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition appearance-none cursor-pointer">
+                                        <option value="" disabled selected>Bitte wählen Sie ein Thema...</option>
+                                        <option value="anfrage">Allgemeine Anfrage</option>
+                                        <option value="wartung">Wartung & Kundendienst</option>
+                                        <option value="heizung">Neue Heizung / Modernisierung</option>
+                                        <option value="bad">Badsanierung / Sanitär</option>
+                                        <option value="notfall">Notfall / Störung</option>
+                                    </select>
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                        <i class="fas fa-chevron-down text-xs"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Nachricht</label>
                                 <textarea rows="4" class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="Wie können wir Ihnen helfen?"></textarea>
                             </div>
+                            
                             <button type="button" class="w-full bg-google-blue hover:bg-google-blueHover text-white font-bold py-4 rounded-xl shadow-md transition transform hover:scale-[1.02]">
                                 Nachricht absenden
                             </button>
@@ -597,51 +617,57 @@
     </main>
 
     <script>
-        // --- NAVIGATION LOGIC (ANGEPASST FÜR PUNKT 2) ---
-        function navTo(pageId, pushToHistory = true) {
-            document.querySelectorAll('.page-section').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('page-transition'));
+        // --- PUNKT 2: NAVIGATION REPARIERT (Anker-Methode) ---
+        
+        // Diese Funktion kümmert sich um ALLES, wenn sich die URL ändert (z.B. #leistungen)
+        function handleNavigation() {
+            // Wir lesen, was hinter dem # steht. Wenn nichts da steht, nehmen wir 'start'.
+            const hash = window.location.hash.replace('#', '') || 'start';
+            
+            // 1. Alle Seiten ausblenden
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('page-transition');
+            });
 
-            const target = document.getElementById('page-' + pageId);
+            // 2. Die gewünschte Seite anzeigen
+            const target = document.getElementById('page-' + hash);
             if(target) {
                 target.classList.remove('hidden');
                 target.classList.add('page-transition');
             }
 
+            // 3. Menü-Buttons aktualisieren (Blauer Hintergrund)
             document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.getElementById('btn-' + pageId);
+            const activeBtn = document.getElementById('btn-' + hash);
             if(activeBtn) activeBtn.classList.add('active');
 
+            // 4. Mobile Menü schließen, falls offen
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('mobile-overlay');
             if(!sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
                 toggleMobileMenu();
             }
 
+            // 5. Nach oben scrollen
             document.getElementById('main-scroll-container').scrollTop = 0;
             
-            // Wenn zur Referenz-Seite navigiert wird, stellen wir sicher, dass das Slider-Bild korrekt sitzt
-            if(pageId === 'referenzen') {
+            // 6. Slider-Bugfix: Wenn wir auf Referenzen sind, Slider neu berechnen
+            if(hash === 'referenzen') {
                 setTimeout(updateSliderImageWidth, 100);
-            }
-
-            // NEU: Historie für Browser-Zurück-Button
-            if (pushToHistory) {
-                history.pushState({page: pageId}, null, '#' + pageId);
             }
         }
 
-        // NEU: Event Listener für den Zurück-Button
-        window.addEventListener('popstate', (event) => {
-            if (event.state && event.state.page) {
-                navTo(event.state.page, false);
-            } else {
-                 // Falls kein State da ist (z.B. ganz am Anfang), Hash prüfen oder Startseite
-                 const hash = window.location.hash.replace('#', '');
-                 if(hash) navTo(hash, false);
-                 else navTo('start', false);
-            }
-        });
+        // Wenn man auf einen Button klickt, ändern wir NUR die Adresse (#...)
+        // Der Rest passiert automatisch durch 'handleNavigation'
+        function navTo(pageId) {
+            window.location.hash = pageId;
+        }
+
+        // Wir hören darauf, wenn sich die Adresse ändert (auch durch Zurück-Button)
+        window.addEventListener('hashchange', handleNavigation);
+
+        // --- Ende Navigation Logic ---
 
         function toggleMobileMenu() {
             const sidebar = document.getElementById('sidebar');
@@ -746,13 +772,8 @@
                 document.getElementById('theme-icon').classList.remove('fa-moon');
             }
             
-            // NEU: Prüfen, ob eine Seite in der URL steht (z.B. #leistungen), sonst Startseite
-            const hash = window.location.hash.replace('#', '');
-            if (hash && document.getElementById('page-' + hash)) {
-                navTo(hash, false);
-            } else {
-                navTo('start', false);
-            }
+            // Beim Laden einmal die Navigation prüfen
+            handleNavigation();
 
             updateSliderImageWidth(); // Initial call
         });
