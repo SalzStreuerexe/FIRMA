@@ -544,47 +544,62 @@
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-google-darkCard p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700">
-                        <form class="space-y-4">
+                    <div class="bg-white dark:bg-google-darkCard p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 relative">
+                        <div id="success-message" class="hidden absolute inset-0 bg-white dark:bg-google-darkCard rounded-3xl flex-col items-center justify-center text-center p-8 z-10">
+                            <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-6 text-3xl">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Nachricht gesendet!</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-6">Vielen Dank. Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei Ihnen.</p>
+                            <button onclick="resetForm()" class="px-6 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                                Neue Nachricht
+                            </button>
+                        </div>
+
+                        <div id="loading-spinner" class="hidden absolute inset-0 bg-white/80 dark:bg-google-darkCard/80 rounded-3xl flex items-center justify-center z-20 backdrop-blur-sm">
+                            <div class="animate-spin rounded-full h-12 w-12 border-4 border-google-blue border-t-transparent"></div>
+                        </div>
+
+                        <form id="google-sheet-form" class="space-y-4">
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Vorname</label>
-                                    <input type="text" class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="Max">
+                                    <input type="text" name="Vorname" required class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="Max">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Nachname</label>
-                                    <input type="text" class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="Mustermann">
+                                    <input type="text" name="Nachname" required class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="Mustermann">
                                 </div>
                             </div>
                             
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Email Adresse</label>
-                                <input type="email" class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="max@beispiel.de">
+                                <input type="email" name="Email" required class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="max@beispiel.de">
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Worum geht es?</label>
                                 <div class="relative">
-                                    <select class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition appearance-none cursor-pointer">
+                                    <select name="Thema" required class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition appearance-none cursor-pointer">
                                         <option value="" disabled selected>Bitte wählen Sie ein Thema...</option>
-                                        <option value="anfrage">Allgemeine Anfrage</option>
-                                        <option value="wartung">Wartung & Kundendienst</option>
-                                        <option value="heizung">Neue Heizung / Modernisierung</option>
-                                        <option value="bad">Badsanierung / Sanitär</option>
-                                        <option value="notfall">Notfall / Störung</option>
+                                        <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                                        <option value="Wartung & Kundendienst">Wartung & Kundendienst</option>
+                                        <option value="Neue Heizung">Neue Heizung / Modernisierung</option>
+                                        <option value="Badsanierung">Badsanierung / Sanitär</option>
+                                        <option value="Notfall">Notfall / Störung</option>
                                     </select>
                                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
                                         <i class="fas fa-chevron-down text-xs"></i>
                                     </div>
                                 </div>
                             </div>
-                        
+
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 mb-1 uppercase">Nachricht</label>
-                                <textarea rows="4" class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="Wie können wir Ihnen helfen?"></textarea>
+                                <textarea name="Nachricht" rows="4" required class="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-none focus:ring-2 focus:ring-google-blue dark:text-white transition" placeholder="Wie können wir Ihnen helfen?"></textarea>
                             </div>
                             
-                            <button type="button" class="w-full bg-google-blue hover:bg-google-blueHover text-white font-bold py-4 rounded-xl shadow-md transition transform hover:scale-[1.02]">
+                            <button type="submit" class="w-full bg-google-blue hover:bg-google-blueHover text-white font-bold py-4 rounded-xl shadow-md transition transform hover:scale-[1.02]">
                                 Nachricht absenden
                             </button>
                         </form>
@@ -617,57 +632,42 @@
     </main>
 
     <script>
-        // --- PUNKT 2: NAVIGATION REPARIERT (Anker-Methode) ---
-        
-        // Diese Funktion kümmert sich um ALLES, wenn sich die URL ändert (z.B. #leistungen)
+        // --- NAVIGATION LOGIC (Hash-based) ---
         function handleNavigation() {
-            // Wir lesen, was hinter dem # steht. Wenn nichts da steht, nehmen wir 'start'.
             const hash = window.location.hash.replace('#', '') || 'start';
             
-            // 1. Alle Seiten ausblenden
             document.querySelectorAll('.page-section').forEach(el => {
                 el.classList.add('hidden');
                 el.classList.remove('page-transition');
             });
 
-            // 2. Die gewünschte Seite anzeigen
             const target = document.getElementById('page-' + hash);
             if(target) {
                 target.classList.remove('hidden');
                 target.classList.add('page-transition');
             }
 
-            // 3. Menü-Buttons aktualisieren (Blauer Hintergrund)
             document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById('btn-' + hash);
             if(activeBtn) activeBtn.classList.add('active');
 
-            // 4. Mobile Menü schließen, falls offen
             const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('mobile-overlay');
             if(!sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
                 toggleMobileMenu();
             }
 
-            // 5. Nach oben scrollen
             document.getElementById('main-scroll-container').scrollTop = 0;
             
-            // 6. Slider-Bugfix: Wenn wir auf Referenzen sind, Slider neu berechnen
             if(hash === 'referenzen') {
                 setTimeout(updateSliderImageWidth, 100);
             }
         }
 
-        // Wenn man auf einen Button klickt, ändern wir NUR die Adresse (#...)
-        // Der Rest passiert automatisch durch 'handleNavigation'
         function navTo(pageId) {
             window.location.hash = pageId;
         }
 
-        // Wir hören darauf, wenn sich die Adresse ändert (auch durch Zurück-Button)
         window.addEventListener('hashchange', handleNavigation);
-
-        // --- Ende Navigation Logic ---
 
         function toggleMobileMenu() {
             const sidebar = document.getElementById('sidebar');
@@ -704,14 +704,11 @@
         const afterWrapper = document.getElementById('bath-after');
         const afterImg = afterWrapper.querySelector('img');
         const handle = document.getElementById('bath-handle');
-        
-        // Labels holen
-        const labelOld = document.getElementById('label-old'); // Links unten
-        const labelNew = document.getElementById('label-new'); // Rechts unten
+        const labelOld = document.getElementById('label-old'); 
+        const labelNew = document.getElementById('label-new'); 
 
         let active = false;
 
-        // Funktion, um das innere Bild immer so breit wie den Slider zu halten (Verhindert Stauchen)
         const updateSliderImageWidth = () => {
             if(slider && afterImg) {
                 afterImg.style.width = slider.clientWidth + 'px';
@@ -725,29 +722,24 @@
             let pos = ((x - rect.left) / rect.width) * 100;
             pos = Math.max(0, Math.min(100, pos));
             
-            // Slider und Griff bewegen
             afterWrapper.style.width = pos + "%";
             handle.style.left = pos + "%";
 
-            // --- LOGIK FÜR LABELS ---
             if (pos < 10) {
                 labelNew.classList.add('label-active');
                 labelNew.classList.remove('label-inactive');
-                
                 labelOld.classList.remove('label-active');
                 labelOld.classList.add('label-inactive');
             } 
             else if (pos > 90) {
                 labelOld.classList.add('label-active');
                 labelOld.classList.remove('label-inactive');
-                
                 labelNew.classList.remove('label-active');
                 labelNew.classList.add('label-inactive');
             } 
             else {
                 labelNew.classList.remove('label-active');
                 labelNew.classList.add('label-inactive');
-                
                 labelOld.classList.remove('label-active');
                 labelOld.classList.add('label-inactive');
             }
@@ -756,15 +748,51 @@
         slider.addEventListener('mousedown', () => active = true);
         window.addEventListener('mouseup', () => active = false);
         window.addEventListener('mousemove', slideMove);
-        
         slider.addEventListener('touchstart', () => active = true);
         window.addEventListener('touchend', () => active = false);
         window.addEventListener('touchmove', slideMove);
 
-        // Resize Event
         window.addEventListener('resize', updateSliderImageWidth);
 
-        // Init
+        // --- GOOGLE SHEETS FORM SUBMISSION LOGIC ---
+        const scriptURL = 'HIER_DEINE_GOOGLE_SCRIPT_URL_EINFÜGEN';
+        const form = document.forms['google-sheet-form'];
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const successMessage = document.getElementById('success-message');
+
+        if(form) {
+            form.addEventListener('submit', e => {
+              e.preventDefault();
+              
+              // Lade-Spinner anzeigen
+              if(loadingSpinner) loadingSpinner.classList.remove('hidden');
+              
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // Spinner weg, Erfolg anzeigen
+                    if(loadingSpinner) loadingSpinner.classList.add('hidden');
+                    if(successMessage) {
+                        successMessage.classList.remove('hidden');
+                        successMessage.classList.add('flex'); // Flexbox aktivieren für Zentrierung
+                    }
+                    form.reset();
+                })
+                .catch(error => {
+                    if(loadingSpinner) loadingSpinner.classList.add('hidden');
+                    alert('Ups! Da ist etwas schiefgelaufen. Bitte versuchen Sie es später nochmal oder rufen Sie uns an.');
+                    console.error('Error!', error.message);
+                });
+            });
+        }
+
+        function resetForm() {
+            if(successMessage) {
+                successMessage.classList.add('hidden');
+                successMessage.classList.remove('flex');
+            }
+        }
+
+        // --- INIT ---
         document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
@@ -772,10 +800,8 @@
                 document.getElementById('theme-icon').classList.remove('fa-moon');
             }
             
-            // Beim Laden einmal die Navigation prüfen
             handleNavigation();
-
-            updateSliderImageWidth(); // Initial call
+            updateSliderImageWidth(); 
         });
     </script>
 </body>
